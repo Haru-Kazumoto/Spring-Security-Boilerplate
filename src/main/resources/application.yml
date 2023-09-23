@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/PPDB-DB
+    username: postgres
+    password: admin
+    hikari:
+      connection-timeout: 3000
+      maximum-pool-size: 10
+      minimum-idle: 4
+      idle-timeout: 600000
+      pool-name: PPDB Application Pool
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    database: postgresql
+
+application:
+  version: 1
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
